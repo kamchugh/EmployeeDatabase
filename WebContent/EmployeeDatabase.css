@@ -1,0 +1,105 @@
+.container {
+	display: flex;
+	align-items: center;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+	
+	display: flex;
+	align-items: center;
+	font-family: 'Open Sans', sans-serif;
+	padding-top: 40px;
+	
+	
+}
+
+.box {
+	width: 50%;
+	padding: 10px;
+	
+}
+
+input {
+	margin: 10px;
+	padding: 5px;
+	
+}
+
+.header {
+	font-size: 50px;
+	text-align: center;
+	font-family: 'Open Sans', sans-serif; 
+	font-weight: 200px;
+	padding: 10px;
+	
+}
+
+.queryContainer {
+	display: flex;
+	align-items: center;
+	
+}
+
+@media only screen and (min-width: 800px) {
+.queryContainer {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	
+}
+	
+}
+
+.queryTable {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 40px;
+	background-color: #D3D3D3;
+	border-collapse: collapse;
+	font-family: 'Open Sans', sans-serif;
+}
+
+td {
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-right: -5px;
+	margin-bottom: -30px;
+	cellspacing: 0;
+	
+}
+
+tr:hover {
+	background-color: #d19cdf;
+}
+
+tr:nth-child(even):hover {
+	background-color: #d19cdf;
+}
+tr:nth-child(even) {
+    background-color: white;
+}
+
+tr:first-child {
+    background-color: purple;
+    color: white;
+}
+
+input[type=submit], button {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	background-color: white;
+	border-style: solid;
+	border-color: #D3D3D3;
+	padding: 5px;
+}
+
+input[type=submit]:hover, button:hover {
+	background-color: #d19cdf;
+	color: white;
+}
+
+button {
+	font-size: 30px;
+}

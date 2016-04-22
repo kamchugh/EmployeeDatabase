@@ -7,6 +7,7 @@ public interface EmployeeDao {
 	public List<Department> getDepartments();
 	public void updateEmployee(Employee employee);
 	public void addEmployee(Employee employee);
-	public List<Employee> getAllEmployees();
+	public List<Job> getJobs();
+	public List<Employee> getEmployees();
 
 }

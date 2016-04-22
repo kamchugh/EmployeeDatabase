@@ -13,26 +13,26 @@
 </head>
 <body>
 	<header>
-	<div class="header">Search the Employee Database</div>
+	<h1 class = "orangeBorder"> MoVo - HR </h1>
 	</header>
 	<div class="container">
-		<div class=box box1>
+		<div class=search box1>
 			<form action="query.do" method="GET">
-				Query <input style="width: 300px;" type="text" name="query"
+				<h4> Query </h4> <input style="width: 300px;" type="text" name="query"
 					value="SELECT"><br> <input type="submit" name="submit"
 					value="submit" />
 			</form>
 		</div>
-		<div class=box box2>
+		<div class=search box2>
 			<form action="query.do" method="GET">
-				Update<input style="width: 300px;" type="text" name="query"
+				<h4> Update </h4><input style="width: 300px;" type="text" name="query"
 					value="UPDATE"><br> <input type="submit" name="submit"
 					value="submit" />
 			</form>
 		</div>
-		<div class=box box3>
+		<div class=search box3>
 			<form action="query.do" method="GET">
-				Remove<input style="width: 300px;" type="text" name="query"
+				<h4> Remove </h4> <input style="width: 300px;" type="text" name="query"
 					value="DELETE FROM"><br> <input type="submit"
 					name="update" value="submit" />
 			</form>

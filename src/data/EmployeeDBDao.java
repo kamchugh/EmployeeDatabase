@@ -7,14 +7,30 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class EmployeeDBDao implements EmployeeDao {
 	private static final String DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://localhost:3306/companydb";
-	private Map<Integer, Employee> employeeMap = new HashMap<Integer, Employee>();
+	
+	private static final String USER = "student";
+	private static final String PASS = "student";
+	private Connection conn;
+	
+	public EmployeeDBDao() {
+		try {
+			Class.forName(DRIVER_CLASS_NAME);
+			conn = DriverManager.getConnection(URL, USER, PASS);
+				
+			
+		} catch (ClassNotFoundException cnfe) {
+			System.err.println(cnfe);
+		}
+		catch (SQLException sqle) {
+			
+		}
+		
+	}
 	
 	@Override
 	public Employee getEmyById(int id) {
@@ -23,7 +39,7 @@ public class EmployeeDBDao implements EmployeeDao {
 
 		try {
 			Class.forName(DRIVER_CLASS_NAME); // add this so MVC can find the driver
-			Connection conn = DriverManager.getConnection(URL, "student", "student");
+			//conn = DriverManager.getConnection(URL, "student", "student");
 			Statement statement = conn.createStatement();
 			ResultSet rs = statement.executeQuery(sql);
 			if(rs.next()) {
@@ -31,11 +47,11 @@ public class EmployeeDBDao implements EmployeeDao {
 				emp = new Employee(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5));
 			}
 			
-			System.out.println(rs.getInt(5));
+			//System.out.println(rs.getInt(5));
 
 			rs.close();
 			statement.close();
-			conn.close();
+			//conn.close();
 
 		} catch (Exception e) {
 			System.err.println(e);
@@ -54,7 +70,7 @@ System.out.println("INSERT INTO employees (firstname, lastname, department_id, j
 		ArrayList<ArrayList> arrayList2 = new ArrayList<>();
 		try {
 			Class.forName(DRIVER_CLASS_NAME);
-			Connection conn = DriverManager.getConnection(URL, "student", "student");
+			//conn = DriverManager.getConnection(URL, "student", "student");
 			Statement stmt = conn.createStatement();
 			System.out.println("Gets to right before");
 			 stmt.executeUpdate(sql);
@@ -103,7 +119,7 @@ System.out.println("UPDATE employees SET firstname='" + employee.getFirstName() 
 		ArrayList<ArrayList> arrayList2 = new ArrayList<>();
 		try {
 			Class.forName(DRIVER_CLASS_NAME);
-			Connection conn = DriverManager.getConnection(URL, "student", "student");
+			//conn = DriverManager.getConnection(URL, "student", "student");
 			Statement stmt = conn.createStatement();
 			System.out.println("Gets to right before");
 			 stmt.executeUpdate(sql);
@@ -141,11 +157,35 @@ System.out.println("UPDATE employees SET firstname='" + employee.getFirstName() 
 		
 	}
 	
-	@Override 
-	public List<Employee> getAllEmployees() {
-		List<Employee> employeeList = new ArrayList<Employee>(employeeMap.values());
-		return employeeList;
+	
+	@Override
+	public List<Job> getJobs() {
+		ArrayList<Job> jobs = new ArrayList<>();
+		String sql = "SELECT id, name, minimum_salary, maximum_salary FROM jobs ORDER BY name";
+
+		try {
+			Class.forName(DRIVER_CLASS_NAME); // add this so MVC can find the driver
+			//Connection conn = DriverManager.getConnection(URL, "student", "student");
+			Statement statement = conn.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			while(rs.next()) {
+				
+				Job j = new Job(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4));
+				jobs.add(j);
+			}
+
+			rs.close();
+			statement.close();
+			//conn.close();
+
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+		return jobs;
 	}
+	
+	
+
 	
 	@Override
 	public List<Department> getDepartments() {
@@ -154,7 +194,7 @@ System.out.println("UPDATE employees SET firstname='" + employee.getFirstName() 
 
 		try {
 			Class.forName(DRIVER_CLASS_NAME); // add this so MVC can find the driver
-			Connection conn = DriverManager.getConnection(URL, "student", "student");
+			//Connection conn = DriverManager.getConnection(URL, "student", "student");
 			Statement statement = conn.createStatement();
 			ResultSet rs = statement.executeQuery(sql);
 			while(rs.next()) {
@@ -165,12 +205,41 @@ System.out.println("UPDATE employees SET firstname='" + employee.getFirstName() 
 
 			rs.close();
 			statement.close();
-			conn.close();
+			//conn.close();
 
 		} catch (Exception e) {
 			System.err.println(e);
 		}
 		return depts;
+	}
+	
+	//get all your employees 
+	@Override
+	public List<Employee> getEmployees() {
+		ArrayList<Employee> emps = new ArrayList<>();
+		System.out.println("I get into the getEmployee method");
+		String sql = "SELECT firstname, lastname, id, department_id, job_id FROM employees ORDER BY id";
+
+		try {
+			Class.forName(DRIVER_CLASS_NAME); // add this so MVC can find the driver
+			//Connection conn = DriverManager.getConnection(URL, "student", "student");
+			Statement statement = conn.createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			while(rs.next()) {
+				
+				Employee e = new Employee(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getInt(5));
+				emps.add(e);
+			}
+
+			rs.close();
+			statement.close();
+			//conn.close();
+
+		} catch (Exception e) {
+			System.err.println(e);
+		}
+		return emps;
+		
 	}
 
 }

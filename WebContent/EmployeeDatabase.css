@@ -10,6 +10,7 @@
 	align-items: center;
 	font-family: 'Open Sans', sans-serif;
 	padding-top: 40px;
+	flex-direction: column;
 	
 	
 }
@@ -26,14 +27,6 @@ input {
 	
 }
 
-.header {
-	font-size: 50px;
-	text-align: center;
-	font-family: 'Open Sans', sans-serif; 
-	font-weight: 200px;
-	padding: 10px;
-	
-}
 
 .queryContainer {
 	display: flex;
@@ -82,7 +75,7 @@ tr:nth-child(even) {
 }
 
 tr:first-child {
-    background-color: purple;
+    background-color: #581845;
     color: white;
 }
 
@@ -96,10 +89,112 @@ input[type=submit], button {
 }
 
 input[type=submit]:hover, button:hover {
-	background-color: #d19cdf;
+	background-color:#581845;
 	color: white;
+}
+
+input[type=text] {
+	width: 75%;
+	font-family: 'Open Sans', sans-serif;
 }
 
 button {
 	font-size: 30px;
+}
+/* this is for the normalway */
+
+header {
+	background-color: #C70039;
+	color: #FFC300;
+	text-align: center;
+	padding-top: 45px;
+	padding-bottom: 45px;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 30px;
+	border-radius: 10px;
+}
+
+.orangeBorder {
+	border-style: solid;
+	border-color: #FF5733;
+	border-radius: 25px;
+	display: inline;
+	padding: 25px;
+}
+
+#purpleText  {
+	color: #581845;
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+}
+
+.container2 {
+	display:flex;
+  
+}
+
+.box {
+width: 33%;
+margin: 20px;
+background-color: #FF5733;
+border-radius: 0 0px 10px 10px;
+padding: 10px;
+}
+
+.search {
+width: 95%;
+margin: 20px;
+border-style: solid;
+border-color: #FF5733;
+background-color: white;
+border-radius: 0 0px 10px 10px;
+padding: 10px;
+
+}
+
+.index {
+	width: 50%;
+	margin: 40px;
+	
+}
+
+search h4 {
+	color: #C70039;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	margin-top: 5px;
+
+}
+
+
+.search p, form {
+	color: #581845;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+
+}
+
+a {
+	color: #C70039;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+
+
+.box h4 {
+	color: #FFC300;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	margin-top: 5px;
+}
+
+.box p {
+	color: #581845;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
 }

@@ -63,11 +63,11 @@
 	</div>
 	<div class= "container2">
 		<div class = "search" "box1">
-			<h4> Find Anything in Any Database </h4>
+			<h4> Find Anything in Any Table </h4>
 			<p> <form action="selectEmployee.do" method="GET">
 				<br> Field (firstname, lastname, etc) <input
 					style="width: 75%;" type="text" name="getField"
-					placeholder="getField"><br> Database <input
+					placeholder="getField"><br> Table <input
 					style="width: 200px;" type="text" name="databaseName"
 					placeholder="databaseName"><br> EQUAL TO <input
 					style="width: 200px;" type="text" name="match" placeholder="match"><br>
@@ -104,7 +104,7 @@
 	</div>
 		<div class = "search" "box5">
 			<h4> <a href="searchEmployees.do">Search just by
-						employee </a> </h4>
+						employee (this does not work, but was a personal stretch goal/ exploration)</a> </h4>
 			
 	</div>
 </div>

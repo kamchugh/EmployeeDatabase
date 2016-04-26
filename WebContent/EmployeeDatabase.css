@@ -237,7 +237,7 @@ a {
 	font-weight: bold;
 }
 
-a .About {
+.About {
 	z-index: 2;
 	color: purple;
 	font-family: 'Open Sans', sans-serif;

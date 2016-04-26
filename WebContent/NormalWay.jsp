@@ -69,7 +69,7 @@
 					style="width: 75%;" type="text" name="getField"
 					placeholder="getField"><br> Table <input
 					style="width: 200px;" type="text" name="databaseName"
-					placeholder="databaseName"><br> EQUAL TO <input
+					placeholder="tableName"><br> EQUAL TO <input
 					style="width: 200px;" type="text" name="match" placeholder="match"><br>
 				<input type="submit" name="submit" value="submit" />
 			</form> </p>
@@ -88,8 +88,8 @@
 		<h4> Remove by Employee ID # </h4>
 			<p> Remove something by ID (employee, department, etc)
 				<form action="deleteByID.do" method="GET">
-					<br> Database <input style="width: 200px;" type="text"
-						name="databaseName" placeholder="databaseName"><br>
+					<br> Table <input style="width: 200px;" type="text"
+						name="tableName" placeholder="databaseName"><br>
 					ID # <input style="width: 200px;" type="text" name="id"
 						placeholder="id"><br> <input type="submit"
 						name="submit" value="submit" /> </p>
@@ -155,5 +155,6 @@
 			</c:choose>
 
 		</div>
+
 </body>
 </html>
